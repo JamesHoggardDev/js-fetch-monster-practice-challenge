@@ -1,6 +1,7 @@
 const monContainer = document.querySelector("#monster-container")
+const backBttn = document.querySelector("#back")
+const fwdBttn = document.querySelector("#forward")
 let createForm = document.querySelector("#create-monster > form")
-//Arr of Objs 0-99, //div h2, h4, p
 
 fetch('http://localhost:3000/monsters?_limit=50&_page=1')
     .then(res => res.json())
@@ -40,8 +41,17 @@ createForm.addEventListener('submit', evt => {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify(newMonster)
+        body: JSON.stringify(newMonster)   
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(newMonObj => renderOneCard(newMonObj));
+})
+
+
+fwdBttn.addEventListener('click', evt =>{
+
+})
+
+backBttn.addEventListener('click', evt =>{
+    
 })
